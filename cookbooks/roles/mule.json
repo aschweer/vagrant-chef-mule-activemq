@@ -1,0 +1,27 @@
+{
+  "name": "mule",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "Vagrant instance, with Mule",
+  "override_attributes": {
+    "box_name": "mule",
+    "mysql": {
+      "databases": {
+        "database_name": true,
+        "test_database_name": true
+      },
+      "server_root_password": "bananas",
+      "users": {
+        "user": "password"
+      }
+    },
+    "nginx": {
+      "worker_connections": 768,
+      "keepalive_timeout": 2
+    }
+  },
+  "default_attributes": {},
+  "run_list": [
+    "recipe[mule::default]"
+  ]
+}
