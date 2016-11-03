@@ -14,7 +14,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Set the version of chef to install using the vagrant-omnibus plugin
   config.omnibus.chef_version = :latest
 
+#  config.vm.boot_timeout = 600 # wait 10 minutes
+
   config.vm.box = "bento/ubuntu-14.04"
+
+  
+  # Bugfix for "Cable connected: off"
+  config.vm.provider :virtualbox do |vm|
+    vm.customize [
+      "modifyvm", :id,
+      "--cableconnected1", "on",
+    ]
+  end
+
   # Turn on shared folders
   #config.vm.synced_folder ".", "/vagrant"
 
