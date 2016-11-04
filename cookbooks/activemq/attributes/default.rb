@@ -34,3 +34,6 @@ default['activemq']['install_java'] = true
 # set to 'TLSv1,TLSv1.1,TLSv1.2'
 # to disable sslv3 and protect against poodle
 default['activemq']['transport_protocols'] = nil
+override[:java][:openjdk_packages] = [
+  "openjdk-8-jdk", "openjdk-8-jre-headless"
+  ]

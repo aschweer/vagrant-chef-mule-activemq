@@ -51,6 +51,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     activemq.vm.hostname = "activemq"
 
     activemq.vm.network "forwarded_port", guest: 4546, host: 4546
+    activemq.vm.network "forwarded_port", guest: 8161, host: 8161
 
     activemq.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
